@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard | </title>
     <link rel="stylesheet" href="assets/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/datatables/css/datatables.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/datatables/css/fixedheader.bootstrap.min.css">
+    <link rel="stylesheet" href="assets/datatables/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" href="assets/fontawesome/css/all.css">
     <link rel="stylesheet" href="assets/stylesheets/style.css">
 </head>
@@ -168,7 +171,7 @@
                                 <h3 class="panel-title">Latest DLRs</h3>
                             </div>
                             <div class="panel-body">
-                                <table class="table table-hover table-striped">
+                                <table class="table table-bordered table-striped nowrap" cellspacing="0" width="100%" id="dlr-table">
                                     <thead>
                                         <tr>
                                         <th>DateTime</th>
@@ -254,15 +257,6 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
 
@@ -321,7 +315,23 @@
 
 
     <script src="assets/jquery/jquery3.3.1.js"></script>
+    <script src="assets/datatables/js/jquery.datatables.min.js"></script>
+    <script src="assets/datatables/js/datatables.bootstrap.min.js"></script>
+    <script src="assets/datatables/js/datatables.fixedheader.min.js"></script>
+    <script src="assets/datatables/js/datatables.responsive.min.js"></script>
     <script src="assets/javascripts/bootstrap.min.js"></script>
+    <script src="assets/datatables/js/responsive.bootstrap.min.js"></script>
     <script src="assets/fontawesome/js/all.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var table = $('#dlr-table').DataTable( {
+                responsive: true
+            } );
+        
+            new $.fn.dataTable.FixedHeader( table );
+        } );
+    </script>
+
 </body>
 </html>
